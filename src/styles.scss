@@ -1,0 +1,157 @@
+
+@import "./assets/sass/main.scss";
+// Start Search
+.search-header {
+    padding: 10px 0;
+    .search-field {
+        position: relative;
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 53%;
+            transform: translateY(-53%);
+            font-weight: 300;
+            font-size: 26px;
+        }
+        input {
+            background: $color-white-grey;
+            border-radius: 33px;
+            border: 0;
+            padding: 10px 20px 10px 40px;
+        }
+    }
+    .favorite {
+        display: flex;
+        i {
+            margin-right: 4px;
+        }
+    }
+    .btn-details {
+        background: $color-secondary;
+        color: white;
+        border-color: $color-secondary;
+    }
+}
+
+.add-playlist {
+    max-width: 500px;
+    margin: auto;
+    .btn-details {
+        background: $color-secondary;
+        color: white;
+        border-color: $color-secondary;
+    }
+}
+
+// End Search
+// Start Home
+.youtube-table {
+    width: 100%;
+    .mat-sort-header-button {
+        font-size: 15px;
+        color: black;
+    }
+    tr.mat-row {
+        transition: 0.2s;
+        &:hover {
+            background: $color-white-grey;
+            .btn-details {
+                border-color: $color-secondary;
+            }
+        }
+    }
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+        padding: 5px;
+        @extend .default-size;
+    }
+    td.mat-cell:last-of-type {
+        padding-right: 5px;
+    }
+    .youtube-image {
+        max-height: 75px;
+        width: 150px;
+        border-radius: 4px;
+    }
+    @media (max-width: 767px) {
+        td.mat-cell {
+            font-size: 13px;
+        }
+        td.mat-cell:first-of-type,
+        th.mat-header-cell:first-of-type {
+            padding-left: 6px;
+            width: 150px;
+            padding-right: 6px;
+        }
+        .btn-details {
+            font-size: 13px;
+        }
+    }
+}
+
+.btn-details {
+    border: 1px solid $color-white-grey;
+    padding: 0.4em 1.5em;
+    @extend .default-size;
+    &:hover {
+        background: $color-secondary;
+        color: white;
+    }
+}
+
+// End Home
+// Start Video Details
+.video-details {
+    .btn-details {
+        background: $color-secondary;
+        color: white;
+        border-color: $color-secondary;
+    }
+    .video-group {
+        padding: 12px 20px;
+        border-bottom: 1px solid $color-white-grey;
+    }
+    .video-title {
+        font-weight: 600;
+        font-size: 20px;
+        @media (max-width: 600px) {
+            margin-bottom: 10px;
+        }
+    }
+    .video-duration {
+        @extend .default-size;
+    }
+    .video-count {
+        span {
+            margin-right: 20px;
+            @extend .default-size;
+            &:last-child {
+                margin-right: 0;
+            }
+            i {
+                vertical-align: top;
+                margin-right: 2px;
+            }
+        }
+    }
+    .video-rate {
+        display: flex;
+        align-items: center;
+        &>span {
+            @extend .default-size;
+            margin-right: 10px;
+        }
+    }
+    .video-publish {
+        color: $color-secondary;
+        @extend .default-size;
+        margin: 10px 0;
+    }
+    .video-description {
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+// End Video Details
