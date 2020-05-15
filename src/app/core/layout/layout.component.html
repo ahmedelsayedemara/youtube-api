@@ -1,0 +1,18 @@
+<section class="top-header">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center">
+      <a routerLink="/">
+        <img src="assets/logo.png" height="35" alt="" />
+      </a>
+
+      <a class="heart-icon" routerLink="/favorites">
+        <i class="material-icons search-icon">
+          favorite
+        </i>
+        <span id="favoriteCount2" *ngIf="youtubeList.length">
+          {{ youtubeList.length }}
+        </span>
+      </a>
+    </div>
+  </div>
+</section>

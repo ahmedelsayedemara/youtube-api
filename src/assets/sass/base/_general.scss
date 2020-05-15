@@ -1,21 +1,24 @@
 // Start General Style
 button,
 input {
-    &:focus {
-        outline: none !important;
-        box-shadow: none !important;
-    }
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }
-
+a,
+button {
+  @include transition();
+}
 .btn.disabled,
 .btn:disabled {
-    opacity: 0.65;
-    cursor: no-drop;
+  opacity: 0.65;
+  cursor: no-drop;
 }
 
 .default-size {
-    font-weight: 500;
-    font-size: 15px;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 h1,
@@ -30,7 +33,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 // End General Style

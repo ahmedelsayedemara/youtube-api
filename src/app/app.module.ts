@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SharedModule } from "./shared/shared.module";
 import { YoutubeService } from "./core/services/youtube.service";
 import { TokenInterceptor } from "./core/interceptors/interceptor";
+import { TruncatePipe } from './core/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,9 +20,9 @@ import { TokenInterceptor } from "./core/interceptors/interceptor";
     BrowserAnimationsModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    SharedModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   exports: [],
   providers: [

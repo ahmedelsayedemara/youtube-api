@@ -2,7 +2,11 @@ export interface YoutubeModel {
   id?: string;
   nextPageToken?: string;
   prevPageToken?: string;
-  items?: [any];
+  pageInfo: {
+    resultsPerPage?: number;
+    totalResults?: number;
+  };
+  items?: any;
   snippet?: SnippetModel;
   statistics?: Statistics;
   contentDetails?: ContentDetails;

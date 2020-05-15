@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ErrorHandler } from "@angular/core";
 import {
   HttpRequest,
   HttpHandler,
@@ -9,6 +9,7 @@ import {
 import { Observable, throwError } from "rxjs";
 import { finalize, catchError } from "rxjs/operators";
 import { LoaderService } from "../services/loader.service";
+import { ErrorHandlerService } from "./error-handler.service";
 
 @Injectable({
   providedIn: "root"
@@ -16,7 +17,10 @@ import { LoaderService } from "../services/loader.service";
 export class TokenInterceptor implements HttpInterceptor {
   private key = "AIzaSyCEVlf9er65vXxpjSJSBMokwLuQPDyIy3s";
 
-  constructor(public loaderService: LoaderService) {}
+  constructor(
+    public loaderService: LoaderService,
+    private errorHandler: ErrorHandlerService
+  ) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -29,20 +33,8 @@ export class TokenInterceptor implements HttpInterceptor {
       }
     });
     return next.handle(request).pipe(
-      catchError((error: HttpErrorResponse) => {
-        let errMsg = "";
-        // Client Side Error
-        if (error.error instanceof ErrorEvent) {
-          errMsg = `Error: ${error.error.message}`;
-        } else {
-          // Server Side Error
-          errMsg = `Error Code: ${error.status},  Message: ${error.message}`;
-        }
-        return throwError(errMsg);
-      }),
-      finalize(() => {
-        this.loaderService.hide();
-      })
+      catchError((err, source) => this.errorHandler.onCatch(err, source)),
+      finalize(() => this.loaderService.hide())
     );
   }
 }

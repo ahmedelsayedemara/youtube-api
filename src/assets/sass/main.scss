@@ -1,4 +1,5 @@
 @import "~ngx-toasta/styles/style-bootstrap.css";
 @import "./abstracts/_variables";
-@import "./component/_loading";
+@import "./abstracts/_mixins";
 @import "./base/_general";
+@import "./component/_loading";

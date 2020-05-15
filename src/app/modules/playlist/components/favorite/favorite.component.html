@@ -1,1 +1,37 @@
-<p>favorite works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 col-sm-6" *ngFor="let item of youtubeList">
+      <div class="card favorite-card">
+        <img
+          class="card-img-top"
+          [src]="item.snippet.thumbnails.high.url"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.snippet.title }}</h5>
+          <p class="card-text">
+            {{ item.snippet.description | truncate }}
+          </p>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <a
+              class="btn btn-details m-1"
+              [routerLink]="['/details', item.snippet.resourceId.videoId]"
+            >
+              Details</a
+            >
+
+            <button
+              (click)="removeFavorites(item.snippet.resourceId.videoId)"
+              class="remove-favorite"
+            >
+              <span class="material-icons">
+                delete
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

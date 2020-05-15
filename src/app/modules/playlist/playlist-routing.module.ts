@@ -15,7 +15,7 @@ const routes: Routes = [
     component: PlaylistDetailsComponent
   },
   {
-    path: "favorite",
+    path: "favorites",
     component: FavoriteComponent
   },
 ];
