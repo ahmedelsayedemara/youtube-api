@@ -17,6 +17,11 @@
   background: $color-secondary;
   color: white;
   border-color: $color-secondary;
+  &:hover {
+    background: white;
+    color: $color-secondary;
+    border-color: $color-secondary;
+  }
 }
 .remove-favorite {
   padding: 0;

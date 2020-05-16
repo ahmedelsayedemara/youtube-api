@@ -9,14 +9,15 @@ input {
 a,
 button {
   @include transition();
+  &:hover {
+    text-decoration: none;
+  }
 }
 .btn.disabled,
 .btn:disabled {
   opacity: 0.65;
   cursor: no-drop;
 }
-
-
 
 h1,
 h2,

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { ToastService } from '../services/toast.service';
+import { Router } from "@angular/router";
+import { Observable, throwError } from "rxjs";
+import { ToastService } from "../services/toast.service";
 
 @Injectable({
   providedIn: "root"
@@ -10,7 +10,6 @@ export class ErrorHandlerService {
   constructor(private router: Router, private toast: ToastService) {}
 
   public onCatch(response: any, source: Observable<any>): Observable<any> {
-    console.log(response);
     switch (response.status) {
       case 400:
         this.handleBadRequest(response);
@@ -44,11 +43,11 @@ export class ErrorHandlerService {
   }
 
   private handleUnauthorized(responseBody: any): void {
-    this.toast.addToast("ServerError401 Unauthorized", "Error");
+    this.toast.addToast("ServerError 401 Unauthorized", "Error");
   }
 
   private handleForbidden(): void {
-    this.toast.addToast("ServerError403 Fobidden", "Error");
+    this.toast.addToast("ServerError 403 Fobidden", "Error");
   }
 
   private handleNotFound(responseBody: any): void {

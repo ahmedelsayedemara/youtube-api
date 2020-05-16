@@ -8,7 +8,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ item.snippet.title | truncate : 30 }}</h5>
+          <h5 class="card-title">{{ item.snippet.title | truncate: 30 }}</h5>
           <p class="card-text">
             {{ item.snippet.description | truncate }}
           </p>
@@ -31,6 +31,16 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-sm-12" *ngIf="youtubeList.length === 0">
+      <div class="text-center">
+        <div class="my-4">
+          <h4>
+            Your favorite is empty
+          </h4>
+        </div>
+        <a routerLink="/" class="btn-remove">Home page</a>
       </div>
     </div>
   </div>

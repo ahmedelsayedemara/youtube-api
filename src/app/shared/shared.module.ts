@@ -3,30 +3,33 @@ import { CommonModule } from "@angular/common";
 import { AngularMaterialComponentModule } from "./angular-material-component/angular-material-component.module";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { AngularFirestore } from "@angular/fire/firestore";
+import {
+  AngularFirestore,
+  AngularFirestoreModule
+} from "@angular/fire/firestore";
 import { FormsModule } from "@angular/forms";
 import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
 import { ToastaModule } from "ngx-toasta";
 import { environment } from "src/environments/environment";
-import { NotFoundComponent } from "./not-found/not-found.component";
 import { TruncatePipe } from "../core/pipes/truncate.pipe";
- @NgModule({
-  declarations: [TruncatePipe, LoadingSpinnerComponent, NotFoundComponent],
+@NgModule({
+  declarations: [TruncatePipe, LoadingSpinnerComponent],
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularMaterialComponentModule,
     FormsModule,
-     ToastaModule.forRoot()
+    ToastaModule.forRoot()
   ],
   exports: [
     FormsModule,
     AngularMaterialComponentModule,
     LoadingSpinnerComponent,
     ToastaModule,
-    TruncatePipe,
-   ],
+    TruncatePipe
+  ],
   providers: [AngularFirestore]
 })
 export class SharedModule {}

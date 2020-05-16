@@ -27,7 +27,9 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.getYoutubePlaylist();
+    // this.getYoutubePlaylist();
+    this.checkInternetStatus();
+    console.log(this.listData);
   }
 
   // get youtube playlist
@@ -36,14 +38,7 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
       this.youTubeServices
         .getYoutubePlayList(this.playlistId, next, prev)
         .subscribe((list: YoutubeModel) => {
-          let data = list.items.map(content => {
-            return {
-              id: content.snippet.resourceId.videoId,
-              image: content.snippet.thumbnails.default.url,
-              title: content.snippet.title,
-              videoPublishedAt: content.contentDetails.videoPublishedAt
-            };
-          });
+          let data = this.listMap(list.items);
           this.listData = new MatTableDataSource(data);
           this.youtubeList = list;
           localStorage.setItem("youtubeList", JSON.stringify(list));
@@ -81,6 +76,36 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
   handlerSearch(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.listData.filter = filterValue.trim().toLowerCase();
+  }
+
+  // map data
+  listMap(array: any) {
+    const data = array.map(content => {
+      return {
+        id: content.snippet.resourceId.videoId,
+        image: content.snippet.thumbnails.default.url,
+        title: content.snippet.title,
+        videoPublishedAt: content.contentDetails.videoPublishedAt
+      };
+    });
+    return data;
+  }
+
+  // check internet status
+  private checkInternetStatus() {
+    if (navigator.onLine) {
+      this.getYoutubePlaylist();
+    } else {
+      if (localStorage.getItem("youtubeList")) {
+        let youtube = JSON.parse(
+          localStorage.getItem("youtubeList")
+        ) as YoutubeModel;
+        this.youtubeList = youtube;
+        let data = this.listMap(youtube.items);
+        this.listData = new MatTableDataSource(data);
+        this.setDataSourceAttributes();
+      }
+    }
   }
 
   // pagination
