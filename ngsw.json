@@ -1,0 +1,102 @@
+{
+  "configVersion": 1,
+  "timestamp": 1589658656616,
+  "index": "https://ahmedelsayedemara.github.io/youtube-api/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://ahmedelsayedemara.github.io/youtube-api/5-es2015.e9efc845fad38079ef9a.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/5-es5.e9efc845fad38079ef9a.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/favicon.ico",
+        "https://ahmedelsayedemara.github.io/youtube-api/index.html",
+        "https://ahmedelsayedemara.github.io/youtube-api/main-es2015.d34527bde77232a04517.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/main-es5.d34527bde77232a04517.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/manifest.webmanifest",
+        "https://ahmedelsayedemara.github.io/youtube-api/polyfills-es2015.5b10b8fd823b6392f1fd.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/polyfills-es5.aa54dc96eb547fc28c35.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/runtime-es2015.ca44e8eb7dbd10bca861.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/runtime-es5.ca44e8eb7dbd10bca861.js",
+        "https://ahmedelsayedemara.github.io/youtube-api/styles.ab35de20a20900a4cf2d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-128x128.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-144x144.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-152x152.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-192x192.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-384x384.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-512x512.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-72x72.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-96x96.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/logo.png",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/abstracts/_mixins.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/abstracts/_variables.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/base/_general.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_buttons.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_loading.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_pagination.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/main.scss",
+        "https://ahmedelsayedemara.github.io/youtube-api/assets/star-rating.icons.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://ahmedelsayedemara.github.io/youtube-api/5-es2015.e9efc845fad38079ef9a.js": "deb96707396cc3c5c32dfe5ec0dc4499c49793c1",
+    "https://ahmedelsayedemara.github.io/youtube-api/5-es5.e9efc845fad38079ef9a.js": "888dbd11118ec147bec4d2baff9be96a82f111f7",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/logo.png": "7ccdb386a7554070b34e2de0276b04dedaf1d2d7",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/abstracts/_mixins.scss": "31a98d09a07df5e1078c5b23a35832233a68b288",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/abstracts/_variables.scss": "efea4e4f6abe132b54a7aea85715ed925890604f",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/base/_general.scss": "22f83650536d90bcea691d016ea7f59775687bfd",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_buttons.scss": "644f67f9e9b052179768edb308632e27afba01f0",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_loading.scss": "b28de931271a4891d52c7352f28cba69e71fddd2",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/component/_pagination.scss": "150a17966eab3a91baecbf27ca9650bdcb5d96df",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/sass/main.scss": "948bbfc854294dbe543a046199e4c76a034c736d",
+    "https://ahmedelsayedemara.github.io/youtube-api/assets/star-rating.icons.svg": "c9b2ed31d6a095b618987d52defd38a28dea458c",
+    "https://ahmedelsayedemara.github.io/youtube-api/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://ahmedelsayedemara.github.io/youtube-api/index.html": "1ecd12eecaaaf93639e1fd578a7690174ef6d85c",
+    "https://ahmedelsayedemara.github.io/youtube-api/main-es2015.d34527bde77232a04517.js": "2ee275530cdc871bfe43fd487750aed785b86bb3",
+    "https://ahmedelsayedemara.github.io/youtube-api/main-es5.d34527bde77232a04517.js": "194c03b73465b963d54117359442fc7d8cd42a51",
+    "https://ahmedelsayedemara.github.io/youtube-api/manifest.webmanifest": "3fc791942314b6ee00096f9048fb4e42fe04fd1d",
+    "https://ahmedelsayedemara.github.io/youtube-api/polyfills-es2015.5b10b8fd823b6392f1fd.js": "9abfe15f17820a646e3d51c420908d9f8f7b69b8",
+    "https://ahmedelsayedemara.github.io/youtube-api/polyfills-es5.aa54dc96eb547fc28c35.js": "d9c7ea7bdf48a3fe0308f88e6be472be42eb5c3e",
+    "https://ahmedelsayedemara.github.io/youtube-api/runtime-es2015.ca44e8eb7dbd10bca861.js": "a17fc20af3fccc1d5a76ecfa1c3d35b57994731c",
+    "https://ahmedelsayedemara.github.io/youtube-api/runtime-es5.ca44e8eb7dbd10bca861.js": "0bbbb073249f6314469a6a119ca7e774b9eb172e",
+    "https://ahmedelsayedemara.github.io/youtube-api/styles.ab35de20a20900a4cf2d.css": "7beb78da3764f3093f42af2181f395177505564f"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
