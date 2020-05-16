@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1589660215502,
+  "timestamp": 1589660533613,
   "index": "https://ahmedelsayedemara.github.io/youtube-api/index.html",
   "assetGroups": [
     {
@@ -51,7 +51,20 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "youtube-api",
+      "patterns": [
+        "https:\\/\\/www\\.googleapis\\.com\\/youtube\\/v3\\/",
+        "https:\\/\\/api-task-262518\\.firebaseio\\.com"
+      ],
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": 259200000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
   "hashTable": {
     "https://ahmedelsayedemara.github.io/youtube-api/5-es2015.e9efc845fad38079ef9a.js": "deb96707396cc3c5c32dfe5ec0dc4499c49793c1",
     "https://ahmedelsayedemara.github.io/youtube-api/5-es5.e9efc845fad38079ef9a.js": "888dbd11118ec147bec4d2baff9be96a82f111f7",
