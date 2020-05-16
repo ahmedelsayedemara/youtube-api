@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "tslint \"**/*.{js,ts}\" --quiet --fix",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": " ng build --prod --base-href 'https://ahmedelsayedemara.github.io/youtube-api/'"
   },
   "private": true,
   "dependencies": {

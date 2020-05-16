@@ -1,4 +1,7 @@
 // Start General Style
+body {
+  overflow-x: hidden;
+}
 button,
 input {
   &:focus {

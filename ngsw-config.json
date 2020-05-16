@@ -11,7 +11,8 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
-        ]
+        ],
+        "urls": ["https://fonts.googleapis.com/**"]
       }
     },
     {
@@ -23,6 +24,21 @@
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "youtube-api",
+      "urls": [
+        "https://www.googleapis.com/youtube/v3/", 
+        "https://api-task-262518.firebaseio.com"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "3d",
+        "timeout": "5s",
+        "strategy": "performance"
       }
     }
   ]
