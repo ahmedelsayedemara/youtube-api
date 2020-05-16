@@ -27,9 +27,7 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // this.getYoutubePlaylist();
     this.checkInternetStatus();
-    console.log(this.listData);
   }
 
   // get youtube playlist

@@ -78,9 +78,9 @@ export class PlaylistDetailsComponent implements OnInit, OnDestroy {
   }
 
   // add rate
-  // onRate(videoId, $event) {
-  //   // this.favoriteService.addRate(videoId, $event.newValue);
-  // }
+  onRate(videoId, $event) {
+    this.favoriteService.addRate(videoId, $event.newValue);
+  }
 
   // get rating
   private getRating(videoId) {

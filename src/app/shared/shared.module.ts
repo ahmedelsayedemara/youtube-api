@@ -9,9 +9,11 @@ import {
 } from "@angular/fire/firestore";
 import { FormsModule } from "@angular/forms";
 import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
+import { RatingModule } from "ng-starrating";
 import { ToastaModule } from "ngx-toasta";
 import { environment } from "src/environments/environment";
 import { TruncatePipe } from "../core/pipes/truncate.pipe";
+
 @NgModule({
   declarations: [TruncatePipe, LoadingSpinnerComponent],
   imports: [
@@ -21,10 +23,12 @@ import { TruncatePipe } from "../core/pipes/truncate.pipe";
     AngularFirestoreModule,
     AngularMaterialComponentModule,
     FormsModule,
-    ToastaModule.forRoot()
+    ToastaModule.forRoot(),
+    RatingModule
   ],
   exports: [
     FormsModule,
+    RatingModule,
     AngularMaterialComponentModule,
     LoadingSpinnerComponent,
     ToastaModule,

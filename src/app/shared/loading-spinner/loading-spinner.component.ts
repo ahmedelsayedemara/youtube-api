@@ -5,7 +5,7 @@ import { LoaderService } from "../../core/services/loader.service";
 @Component({
   selector: "app-loading-spinner",
   templateUrl: "./loading-spinner.component.html",
-  styleUrls: [ ]
+  styleUrls: []
 })
 export class LoadingSpinnerComponent implements OnInit {
   isLoading: Subject<boolean> = this.loaderService.isLoading;

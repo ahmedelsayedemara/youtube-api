@@ -21,7 +21,6 @@ export class YoutubeService {
       .set("playlistId", playlistId)
       .set("pageToken", prevPageToken)
       .set("pageToken", nextPageToken);
-    // .set("maxResults", "50");
     return this.Http.get<YoutubeModel>(this.url + "playlistItems", {
       params
     });

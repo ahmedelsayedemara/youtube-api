@@ -28,14 +28,16 @@
       <span>
         Rate Now
       </span>
-      <!-- <star-rating
+
+      <star-rating
         [value]="ratingValue"
         totalstars="5"
         checkedcolor="red"
         uncheckedcolor="gray"
         size="22px"
         readonly="false"
-      ></star-rating> -->
+        (rate)="onRate(video.id, $event)"
+      ></star-rating>
     </h4>
     <h5 class="video-duration">
       Duration

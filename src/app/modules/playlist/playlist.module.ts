@@ -11,7 +11,7 @@ import { SharedModule } from "src/app/shared/shared.module";
   declarations: [
     PlaylistListComponent,
     PlaylistDetailsComponent,
-    FavoriteComponent,
+    FavoriteComponent
   ],
   imports: [CommonModule, PlaylistRoutingModule, SharedModule]
 })

@@ -8,15 +8,18 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class FavoritesService {
   constructor(private firestore: AngularFirestore) {}
 
+  // get all favorites
   getFavorites() {
     return this.firestore.collection("favorites").valueChanges();
   }
 
+  // get video from favorite
   getVideoFavorite(videoId: string) {
     const docRef = this.firestore.collection("favorites").doc(videoId);
     return docRef.valueChanges();
   }
 
+  // add video to favorite
   addToFavorite(video: YoutubeModel) {
     return this.firestore
       .collection("favorites")
@@ -37,6 +40,7 @@ export class FavoritesService {
       });
   }
 
+  // remove video from favorites
   removeFavorites(id: string) {
     return this.firestore
       .collection("favorites")
@@ -44,6 +48,7 @@ export class FavoritesService {
       .delete();
   }
 
+  // add rating
   addRate(videoId: any, ratingValue: number) {
     return this.firestore
       .collection("rating")
@@ -53,6 +58,7 @@ export class FavoritesService {
       });
   }
 
+  // get rate
   getVideoRate(videoId: string) {
     const docRef = this.firestore.collection("rating").doc(videoId);
     return docRef.valueChanges();
