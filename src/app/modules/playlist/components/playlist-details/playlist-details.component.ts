@@ -1,22 +1,24 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { SafeResourceUrl, DomSanitizer } from "@angular/platform-browser";
 import { YoutubeModel } from "src/app/core/interfaces/Youtube";
 import { ActivatedRoute } from "@angular/router";
 import { YoutubeService } from "src/app/core/services/youtube.service";
 import { FavoritesService } from "src/app/core/services/favorites.service";
 import { ToastService } from "src/app/core/services/toast.service";
-import { takeUntil } from "rxjs/operators";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-playlist-details",
   templateUrl: "./playlist-details.component.html",
   styleUrls: ["./playlist-details.component.scss"]
 })
-export class PlaylistDetailsComponent implements OnInit {
+export class PlaylistDetailsComponent implements OnInit, OnDestroy {
   videoURL: SafeResourceUrl;
   video: YoutubeModel;
   favoriteStatus: boolean = false;
   ratingValue: number = 0;
+  subscription: Subscription[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
@@ -41,11 +43,13 @@ export class PlaylistDetailsComponent implements OnInit {
 
   // get video of youtube
   private getYoutubeVideo(videoId: string) {
-    this.youtubeService
-      .getYoutubeVideo(videoId)
-      .subscribe((video: YoutubeModel) => {
-        this.video = video.items[0];
-      });
+    this.subscription.push(
+      this.youtubeService
+        .getYoutubeVideo(videoId)
+        .subscribe((video: YoutubeModel) => {
+          this.video = video.items[0];
+        })
+    );
   }
 
   // convert ISO 8601 time format into normal time duration
@@ -80,31 +84,33 @@ export class PlaylistDetailsComponent implements OnInit {
 
   // get rating
   private getRating(videoId) {
-    this.favoriteService.getVideoRate(videoId).subscribe(
-      (rating: YoutubeModel) => {
-        if (rating) {
-          this.ratingValue = rating.ratingValue;
-        }
-      },
-      error => {
-        console.log(error);
-      }
+    this.subscription.push(
+      this.favoriteService
+        .getVideoRate(videoId)
+        .subscribe((rating: YoutubeModel) => {
+          if (rating) {
+            this.ratingValue = rating.ratingValue;
+          }
+        })
     );
   }
 
   // get get video favorite
   private getVideoFavorite(videoId) {
-    this.favoriteService.getVideoFavorite(videoId).subscribe(
-      (favorite: YoutubeModel) => {
-        if (favorite) {
-          this.favoriteStatus = favorite.favorite;
-        } else {
-          this.favoriteStatus = false;
-        }
-      },
-      error => {
-        console.log(error);
-      }
+    this.subscription.push(
+      this.favoriteService
+        .getVideoFavorite(videoId)
+        .subscribe((favorite: YoutubeModel) => {
+          if (favorite) {
+            this.favoriteStatus = favorite.favorite;
+          } else {
+            this.favoriteStatus = false;
+          }
+        })
     );
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach(x => x.unsubscribe());
   }
 }

@@ -10,23 +10,23 @@ import { ToastaModule } from "ngx-toasta";
 import { environment } from "src/environments/environment";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { TruncatePipe } from "../core/pipes/truncate.pipe";
-@NgModule({
+ @NgModule({
   declarations: [TruncatePipe, LoadingSpinnerComponent, NotFoundComponent],
   imports: [
     CommonModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularMaterialComponentModule,
-    ToastaModule.forRoot()
+    FormsModule,
+     ToastaModule.forRoot()
   ],
   exports: [
     FormsModule,
     AngularMaterialComponentModule,
     LoadingSpinnerComponent,
     ToastaModule,
-    TruncatePipe
-  ],
+    TruncatePipe,
+   ],
   providers: [AngularFirestore]
 })
 export class SharedModule {}

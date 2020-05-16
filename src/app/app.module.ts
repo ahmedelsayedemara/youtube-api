@@ -22,7 +22,7 @@ import { LayoutComponent } from "./core/layout/layout.component";
     NoopAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [],
   providers: [

@@ -1,14 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FavoritesService } from "../services/favorites.service";
 import { LoaderService } from "../services/loader.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-layout",
   templateUrl: "./layout.component.html",
   styleUrls: ["./layout.component.scss"]
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnDestroy {
   youtubeList = [];
+  subscription: Subscription;
+
   constructor(
     private favoriteService: FavoritesService,
     private loaderService: LoaderService
@@ -20,7 +23,7 @@ export class LayoutComponent implements OnInit {
   // get youtube playlist
   private getYoutubePlaylist() {
     this.loaderService.show();
-    this.favoriteService.getFavorites().subscribe(
+    this.subscription = this.favoriteService.getFavorites().subscribe(
       list => {
         this.loaderService.hide();
         this.youtubeList = list;
@@ -29,5 +32,9 @@ export class LayoutComponent implements OnInit {
         this.loaderService.hide();
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

@@ -44,7 +44,7 @@ export class FavoritesService {
       .delete();
   }
 
-  addRate(videoId, ratingValue: number) {
+  addRate(videoId: any, ratingValue: number) {
     return this.firestore
       .collection("rating")
       .doc(videoId)

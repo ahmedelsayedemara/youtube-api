@@ -1,23 +1,25 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { MatTableDataSource, MatSort, MatPaginator } from "@angular/material";
 import { YoutubeModel } from "src/app/core/interfaces/Youtube";
 import { YoutubeService } from "src/app/core/services/youtube.service";
 import { ToastService } from "src/app/core/services/toast.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-playlist-list",
   templateUrl: "./playlist-list.component.html",
   styleUrls: ["./playlist-list.component.scss"]
 })
-export class PlaylistListComponent implements OnInit {
+export class PlaylistListComponent implements OnInit, OnDestroy {
   listData = new MatTableDataSource<YoutubeModel>();
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  youtubeList: YoutubeModel;
   private playlistId: string =
     localStorage.getItem("playlistId") || "PLF75bDBd1tIdwQq6TNd-wNx0AcB8JPeDK";
+  subscription: Subscription[] = [];
   displayedColumns: string[] = ["image", "title", "videoPublishedAt", "action"];
   playListUrl: string;
+  youtubeList: YoutubeModel;
 
   constructor(
     private youTubeServices: YoutubeService,
@@ -30,22 +32,24 @@ export class PlaylistListComponent implements OnInit {
 
   // get youtube playlist
   private getYoutubePlaylist(next = "", prev = "") {
-    this.youTubeServices
-      .getYoutubePlayList(this.playlistId, next, prev)
-      .subscribe((list: YoutubeModel) => {
-        let data = list.items.map(content => {
-          return {
-            id: content.snippet.resourceId.videoId,
-            image: content.snippet.thumbnails.default.url,
-            title: content.snippet.title,
-            videoPublishedAt: content.contentDetails.videoPublishedAt
-          };
-        });
-        this.listData = new MatTableDataSource(data);
-        this.youtubeList = list;
-        localStorage.setItem("youtubeList", JSON.stringify(list));
-        this.setDataSourceAttributes();
-      });
+    this.subscription.push(
+      this.youTubeServices
+        .getYoutubePlayList(this.playlistId, next, prev)
+        .subscribe((list: YoutubeModel) => {
+          let data = list.items.map(content => {
+            return {
+              id: content.snippet.resourceId.videoId,
+              image: content.snippet.thumbnails.default.url,
+              title: content.snippet.title,
+              videoPublishedAt: content.contentDetails.videoPublishedAt
+            };
+          });
+          this.listData = new MatTableDataSource(data);
+          this.youtubeList = list;
+          localStorage.setItem("youtubeList", JSON.stringify(list));
+          this.setDataSourceAttributes();
+        })
+    );
   }
 
   // get youtube playlist
@@ -75,8 +79,6 @@ export class PlaylistListComponent implements OnInit {
 
   // handler search
   handlerSearch(event: Event) {
-    console.log(this.listData);
-
     const filterValue = (event.target as HTMLInputElement).value;
     this.listData.filter = filterValue.trim().toLowerCase();
   }
@@ -93,5 +95,9 @@ export class PlaylistListComponent implements OnInit {
     if (prev) {
       this.getYoutubePlaylist(prev);
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach(x => x.unsubscribe());
   }
 }

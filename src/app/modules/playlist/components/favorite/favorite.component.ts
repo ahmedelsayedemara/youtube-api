@@ -1,15 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FavoritesService } from "src/app/core/services/favorites.service";
 import { LoaderService } from "src/app/core/services/loader.service";
 import { ToastService } from "src/app/core/services/toast.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-favorite",
   templateUrl: "./favorite.component.html",
   styleUrls: ["./favorite.component.scss"]
 })
-export class FavoriteComponent implements OnInit {
+export class FavoriteComponent implements OnInit, OnDestroy {
   youtubeList = [];
+  subscription: Subscription;
 
   constructor(
     private favoriteService: FavoritesService,
@@ -24,7 +26,7 @@ export class FavoriteComponent implements OnInit {
   // get youtube playlist
   private getYoutubePlaylist() {
     this.loaderService.show();
-    this.favoriteService.getFavorites().subscribe(
+    this.subscription = this.favoriteService.getFavorites().subscribe(
       list => {
         this.loaderService.hide();
         this.youtubeList = list;
@@ -40,5 +42,8 @@ export class FavoriteComponent implements OnInit {
   removeFavorites(id) {
     this.favoriteService.removeFavorites(id);
     this.toastService.addToast("removed successfully", "Success");
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
