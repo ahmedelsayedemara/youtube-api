@@ -11,10 +11,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SharedModule } from "./shared/shared.module";
 import { YoutubeService } from "./core/services/youtube.service";
 import { TokenInterceptor } from "./core/interceptors/interceptor";
-import { TruncatePipe } from './core/pipes/truncate.pipe';
+import { LayoutComponent } from "./core/layout/layout.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LayoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

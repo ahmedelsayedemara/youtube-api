@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { YoutubeModel } from "src/app/core/interfaces/Youtube";
 import { FavoritesService } from "src/app/core/services/favorites.service";
 import { LoaderService } from "src/app/core/services/loader.service";
 import { ToastService } from "src/app/core/services/toast.service";
@@ -29,7 +28,6 @@ export class FavoriteComponent implements OnInit {
       list => {
         this.loaderService.hide();
         this.youtubeList = list;
-        console.log(this.youtubeList);
       },
       error => {
         this.loaderService.hide();

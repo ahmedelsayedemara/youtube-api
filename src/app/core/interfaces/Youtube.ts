@@ -8,8 +8,15 @@ export interface YoutubeModel {
   };
   items?: any;
   snippet?: SnippetModel;
-  statistics?: Statistics;
-  contentDetails?: ContentDetails;
+  statistics?: {
+    viewCount?: string;
+    likeCount?: string;
+    favoriteCount?: string;
+  };
+  contentDetails?: {
+    duration?: string;
+    videoPublishedAt?: string;
+  };
   ratingValue?: number;
   favorite?: boolean;
 }
@@ -22,14 +29,4 @@ export interface SnippetModel {
   playlistId?: string;
   channelTitle?: string;
   thumbnails?: object;
-}
-
-export interface Statistics {
-  viewCount?: string;
-  likeCount?: string;
-  favoriteCount?: string;
-}
-export interface ContentDetails {
-  duration?: string;
-  videoPublishedAt?: string;
 }

@@ -9,10 +9,9 @@ import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.compo
 import { ToastaModule } from "ngx-toasta";
 import { environment } from "src/environments/environment";
 import { NotFoundComponent } from "./not-found/not-found.component";
-import { LayoutComponent } from "../core/layout/layout.component";
-import { TruncatePipe } from '../core/pipes/truncate.pipe';
+import { TruncatePipe } from "../core/pipes/truncate.pipe";
 @NgModule({
-  declarations: [TruncatePipe,LayoutComponent, LoadingSpinnerComponent, NotFoundComponent],
+  declarations: [TruncatePipe, LoadingSpinnerComponent, NotFoundComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +22,6 @@ import { TruncatePipe } from '../core/pipes/truncate.pipe';
   ],
   exports: [
     FormsModule,
-    LayoutComponent,
     AngularMaterialComponentModule,
     LoadingSpinnerComponent,
     ToastaModule,

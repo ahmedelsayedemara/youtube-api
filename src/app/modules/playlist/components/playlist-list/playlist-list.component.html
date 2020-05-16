@@ -10,7 +10,7 @@
         />
         <div class="input-group-prepend">
           <button
-            class="btn btn-details"
+            class="btn btn-remove"
             [disabled]="!playListUrl"
             (click)="addNewUrlPlaylist(playListUrl)"
           >
@@ -36,7 +36,7 @@
   mat-table
   [dataSource]="listData"
   matSort
-   class="mat-elevation-z8 youtube-table"
+  class="mat-elevation-z8 youtube-table"
 >
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef width="200"></th>
@@ -72,17 +72,21 @@
     </td>
   </ng-container>
 
- 
-
+  <ng-container matColumnDef="noData">
+    <td mat-footer-cell *matFooterCellDef colspan="4" class="text-center">
+      No records found.
+    </td>
+  </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  <!-- no data -->
+  <tr
+    mat-footer-row
+    *matFooterRowDef="['noData']"
+    [ngClass]="{ 'd-none': listData.filteredData.length > 0 }"
+  ></tr>
 </table>
 
 <div class="container-fluid">
-   <div *ngIf="listData.data.length === 0" class="text-center p-2">
-    <p>No Records Found!</p>
-  </div>
   <div class="pagination justify-content-end text-right">
     <button (click)="prevPage()">
       <i class="material-icons ">

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FavoritesService } from "../services/favorites.service";
 import { LoaderService } from "../services/loader.service";
-import { ToastService } from "../services/toast.service";
 
 @Component({
   selector: "app-layout",
@@ -12,8 +11,7 @@ export class LayoutComponent implements OnInit {
   youtubeList = [];
   constructor(
     private favoriteService: FavoritesService,
-    private loaderService: LoaderService,
-    private toastService: ToastService
+    private loaderService: LoaderService
   ) {}
   ngOnInit() {
     this.getYoutubePlaylist();

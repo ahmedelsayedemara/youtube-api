@@ -15,6 +15,7 @@
     align-items: center;
     line-height: 38px;
     color: $color-secondary;
+    text-decoration: none;
     span {
       position: absolute;
       right: -10px;
@@ -53,17 +54,7 @@
       padding: 10px 20px 10px 40px;
     }
   }
-  .favorite {
-    display: flex;
-    i {
-      margin-right: 4px;
-    }
-  }
-  .btn-details {
-    background: $color-secondary;
-    color: white;
-    border-color: $color-secondary;
-  }
+
   .add-form {
     max-width: 340px;
     margin-bottom: 10px;
@@ -73,11 +64,6 @@
 .add-playlist {
   max-width: 500px;
   margin: auto;
-  .btn-details {
-    background: $color-secondary;
-    color: white;
-    border-color: $color-secondary;
-  }
 }
 
 // End Search
@@ -128,59 +114,8 @@
   }
 }
 
-.btn-details {
-  border: 1px solid $color-white-grey;
-  padding: 0.4em 1.5em;
-  @extend .default-size;
-  &:hover {
-    background: $color-secondary;
-    color: white;
-  }
-}
-.btn-remove {
-  @extend .btn-details;
-  background: $color-secondary;
-  color: white;
-  border-color: $color-secondary;
-}
-.remove-favorite {
-  padding: 0;
-  width: 35px;
-  height: 36px;
-  background: $color-secondary;
-  border: 1px solid $color-secondary;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:hover {
-    background: white;
-    color: $color-secondary;
-    border-color: $color-secondary;
-  }
-}
-
-.pagination {
-  padding: 30px 0;
-  button {
-    margin: 2px;
-    background: $color-white-grey;
-    padding: 0;
-    border: 0;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    &:hover {
-      background: $color-secondary;
-      color: white;
-    }
-  }
-}
 // End Home
+
 // Start Video Details
 .video-details {
   .video-group {

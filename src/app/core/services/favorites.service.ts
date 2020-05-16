@@ -1,7 +1,6 @@
 import { YoutubeModel } from "./../interfaces/Youtube";
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +8,7 @@ import { Observable } from "rxjs";
 export class FavoritesService {
   constructor(private firestore: AngularFirestore) {}
 
-  getFavorites()  {
+  getFavorites() {
     return this.firestore.collection("favorites").valueChanges();
   }
 

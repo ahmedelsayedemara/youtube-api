@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatTableDataSource, MatSort, MatPaginator } from "@angular/material";
 import { YoutubeModel } from "src/app/core/interfaces/Youtube";
 import { YoutubeService } from "src/app/core/services/youtube.service";
@@ -9,9 +9,8 @@ import { ToastService } from "src/app/core/services/toast.service";
   templateUrl: "./playlist-list.component.html",
   styleUrls: ["./playlist-list.component.scss"]
 })
-export class PlaylistListComponent implements OnInit, AfterViewInit {
-  dataSource = new MatTableDataSource<YoutubeModel>();
-  listData = new MatTableDataSource();
+export class PlaylistListComponent implements OnInit {
+  listData = new MatTableDataSource<YoutubeModel>();
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   youtubeList: YoutubeModel;
@@ -19,7 +18,7 @@ export class PlaylistListComponent implements OnInit, AfterViewInit {
     localStorage.getItem("playlistId") || "PLF75bDBd1tIdwQq6TNd-wNx0AcB8JPeDK";
   displayedColumns: string[] = ["image", "title", "videoPublishedAt", "action"];
   playListUrl: string;
- 
+
   constructor(
     private youTubeServices: YoutubeService,
     private toastService: ToastService
@@ -27,10 +26,6 @@ export class PlaylistListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.getYoutubePlaylist();
-  }
-
-  ngAfterViewInit() {
-    this.setDataSourceAttributes();
   }
 
   // get youtube playlist
@@ -47,7 +42,7 @@ export class PlaylistListComponent implements OnInit, AfterViewInit {
           };
         });
         this.listData = new MatTableDataSource(data);
-        this.youtubeList = list
+        this.youtubeList = list;
         localStorage.setItem("youtubeList", JSON.stringify(list));
         this.setDataSourceAttributes();
       });
@@ -80,26 +75,23 @@ export class PlaylistListComponent implements OnInit, AfterViewInit {
 
   // handler search
   handlerSearch(event: Event) {
+    console.log(this.listData);
+
     const filterValue = (event.target as HTMLInputElement).value;
     this.listData.filter = filterValue.trim().toLowerCase();
   }
 
   // pagination
   nextPage() {
-    let next = this.youtubeList.nextPageToken;
+    const next = this.youtubeList.nextPageToken;
     if (next) {
       this.getYoutubePlaylist(next);
     }
   }
   prevPage() {
-    let prev = this.youtubeList.prevPageToken;
+    const prev = this.youtubeList.prevPageToken;
     if (prev) {
-      this.getYoutubePlaylist();
+      this.getYoutubePlaylist(prev);
     }
-  }
-
-  //
-  pageEvent($e) {
-    console.log($e);
   }
 }

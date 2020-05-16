@@ -8,7 +8,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ item.snippet.title }}</h5>
+          <h5 class="card-title">{{ item.snippet.title | truncate : 30 }}</h5>
           <p class="card-text">
             {{ item.snippet.description | truncate }}
           </p>
