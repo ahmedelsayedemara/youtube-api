@@ -39,7 +39,6 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
           let data = this.listMap(list.items);
           this.listData = new MatTableDataSource(data);
           this.youtubeList = list;
-          localStorage.setItem("youtubeList", JSON.stringify(list));
           this.setDataSourceAttributes();
         })
     );
