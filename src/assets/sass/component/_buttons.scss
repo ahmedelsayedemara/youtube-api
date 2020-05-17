@@ -1,11 +1,8 @@
-.default-size {
-  font-weight: 500;
-  font-size: 15px;
-}
 .btn-details {
   border: 1px solid $color-white-grey;
   padding: 0.4em 1.5em;
-  @extend .default-size;
+  font-weight: 500;
+  font-size: 15px;
   display: inline-block;
   &:hover {
     background: $color-secondary;

@@ -87,7 +87,8 @@
   td.mat-footer-cell,
   th.mat-header-cell {
     padding: 5px;
-    @extend .default-size;
+    font-weight: 500;
+    font-size: 15px;
     border-color: $color-white-grey;
   }
   td.mat-cell:last-of-type {
@@ -121,6 +122,7 @@
   .video-group {
     padding: 12px 20px;
     border-bottom: 1px solid $color-white-grey;
+    overflow: hidden;
   }
   .video-title {
     font-weight: 600;
@@ -130,12 +132,14 @@
     }
   }
   .video-duration {
-    @extend .default-size;
+    font-weight: 500;
+    font-size: 15px;
   }
   .video-count {
     span {
       margin-right: 20px;
-      @extend .default-size;
+      font-weight: 500;
+      font-size: 15px;
       &:last-child {
         margin-right: 0;
       }
@@ -149,13 +153,15 @@
     display: flex;
     align-items: center;
     & > span {
-      @extend .default-size;
+      font-weight: 500;
+      font-size: 15px;
       margin-right: 10px;
     }
   }
   .video-publish {
     color: $color-secondary;
-    @extend .default-size;
+    font-weight: 500;
+    font-size: 15px;
     margin: 10px 0;
   }
   .video-description {

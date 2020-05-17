@@ -27,7 +27,7 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.checkInternetStatus();
+    this.getYoutubePlaylist();
   }
 
   // get youtube playlist
@@ -87,23 +87,6 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
       };
     });
     return data;
-  }
-
-  // check internet status
-  private checkInternetStatus() {
-    if (navigator.onLine) {
-      this.getYoutubePlaylist();
-    } else {
-      if (localStorage.getItem("youtubeList")) {
-        let youtube = JSON.parse(
-          localStorage.getItem("youtubeList")
-        ) as YoutubeModel;
-        this.youtubeList = youtube;
-        let data = this.listMap(youtube.items);
-        this.listData = new MatTableDataSource(data);
-        this.setDataSourceAttributes();
-      }
-    }
   }
 
   // pagination
