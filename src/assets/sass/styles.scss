@@ -1,4 +1,9 @@
-@import "./assets/sass/main.scss";
+@import "./abstracts/_variables";
+@import "./abstracts/_mixins";
+@import "./base/_general";
+@import "./component/_loading";
+@import "./component/_buttons";
+@import "./component/_pagination";
 
 // Start top header
 .top-header {

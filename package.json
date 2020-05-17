@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "gulp styles && ng serve ",
+    "build": "gulp styles && ng build",
     "test": "ng test",
     "lint": "tslint \"**/*.{js,ts}\" --quiet --fix",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "gulp": "gulp watch"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +44,11 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "eslint": "^7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -50,6 +56,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "node-sass": "^4.14.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
